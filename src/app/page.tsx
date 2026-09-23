@@ -1,9 +1,9 @@
-
+import HeroSection from '@/components/workouts/HeroSection'
 
 export default function Home() {
   return (
-   <div>
-    Hello
-   </div>
-  );
+    <div>
+      <HeroSection />
+    </div>
+  )
 }
