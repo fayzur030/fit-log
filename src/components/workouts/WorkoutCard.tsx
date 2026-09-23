@@ -19,7 +19,7 @@ const WorkoutCard = ({ item }: ItemsProps) => {
           />
         </figure>
         <div className='card-body'>
-          <p className='text-black badge bg-[#C2F800] text-xs md:text-xs font-bold rounded-full py-4 '>
+          <p className='text-black badge bg-[#C2F800] text-xs md:text-xs font-bold rounded-full py-3.5 '>
             {item.muscleGroups}
           </p>
           <h2 className='card-title text-lg md:text-xl'>{item.name}</h2>
