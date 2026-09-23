@@ -4,7 +4,8 @@
   --font-oswald: var(--font-oswald);
 }
 body {
-  font-family: var(--font-inter);
+  --font-inter: var(--font-inter);
+  --font-oswald: var(--font-oswald);
 }
 
 :root {
@@ -31,4 +32,12 @@ body {
   color: var(--foreground);
   font-family: var(--font-inter);
   /* font-family: Arial, Helvetica, sans-serif; */
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Oswald', sans-serif;
 }
