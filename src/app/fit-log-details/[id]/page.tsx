@@ -1,4 +1,4 @@
-import DetailsPage from '@/components/WorkoutDetails'
+import DetailsPage from '@/components/workouts/WorkoutDetails'
 import { getWorkoutById } from '@/services/getWorkoutById'
 
 interface DetailsProps {
