@@ -3,9 +3,10 @@
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import logo from '@/assets/logo.png'
 import { usePathname } from 'next/navigation'
+import { WorkoutContext } from '@/context/PlanContext'
 
 const navLinks = [
   {
@@ -21,6 +22,7 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
+  const { workoutPlans, savedWorkouts } = useContext(WorkoutContext)
 
   return (
     <nav className='sticky top-0 z-50 border-b border-[#1c1f26] backdrop-blur'>
@@ -73,9 +75,15 @@ const Navbar = () => {
           >
             <span>Plan</span>
 
-            <span className='flex h-8 w-8 items-center justify-center rounded-full bg-[#CCFF00] text-lg font-semibold text-black'>
-              0
-            </span>
+            {workoutPlans.length === 0 ? (
+              <span className='flex h-8 w-8 items-center justify-center rounded-full bg-[#CCFF00] text-lg font-semibold text-black'>
+                0
+              </span>
+            ) : (
+              <span className='flex h-8 w-8 items-center justify-center rounded-full bg-[#CCFF00] text-lg font-semibold text-black'>
+                {workoutPlans.length}
+              </span>
+            )}
           </Link>
 
           <Link
@@ -83,10 +91,15 @@ const Navbar = () => {
             className='flex items-center gap-3 text-base font-medium text-[#D1D5DB] transition-colors hover:text-white'
           >
             <span>Saved</span>
-
-            <span className='flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#30343D] text-lg font-medium text-[#D1D5DB]'>
-              0
-            </span>
+            {savedWorkouts.length === 0 ? (
+              <span className='flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#30343D] text-lg font-medium text-[#D1D5DB]'>
+                0
+              </span>
+            ) : (
+              <span className='flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#30343D] text-lg font-medium text-[#D1D5DB]'>
+                {savedWorkouts.length}
+              </span>
+            )}
           </Link>
         </div>
 
@@ -137,9 +150,15 @@ const Navbar = () => {
               >
                 <span>Plan</span>
 
-                <span className='flex h-9 w-9 items-center justify-center rounded-full bg-[#CCFF00] text-sm font-semibold text-black'>
-                  0
-                </span>
+                {workoutPlans.length === 0 ? (
+                  <span className='flex h-8 w-8 items-center justify-center rounded-full bg-[#CCFF00] text-lg font-semibold text-black'>
+                    0
+                  </span>
+                ) : (
+                  <span className='flex h-8 w-8 items-center justify-center rounded-full bg-[#CCFF00] text-lg font-semibold text-black'>
+                    {workoutPlans.length}
+                  </span>
+                )}
               </Link>
 
               <Link
@@ -149,9 +168,15 @@ const Navbar = () => {
               >
                 <span>Saved</span>
 
-                <span className='flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#30343D] text-sm font-medium text-[#D1D5DB]'>
-                  0
-                </span>
+                {savedWorkouts.length === 0 ? (
+                  <span className='flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#30343D] text-lg font-medium text-[#D1D5DB]'>
+                    0
+                  </span>
+                ) : (
+                  <span className='flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#30343D] text-lg font-medium text-[#D1D5DB]'>
+                    {savedWorkouts.length}
+                  </span>
+                )}
               </Link>
             </div>
           </div>

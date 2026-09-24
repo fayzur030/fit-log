@@ -1,11 +1,21 @@
 import { FitLogData } from '@/types/fitlog'
-import { Bookmark, CalendarPlus2 } from 'lucide-react'
 import Image from 'next/image'
+import AddTodayPlanBtn from '../button/AddTodayPlanBtn'
+import SavePlanBtn from '../button/SavePlanBtn'
 interface Iwordout {
   workout: FitLogData
 }
 
 const DetailsPage = ({ workout }: Iwordout) => {
+  const metaItems = [
+    { label: 'EQUIPMENT', value: workout.equipment },
+    { label: 'DIFFICULTY', value: workout.difficulty },
+    { label: 'SETS', value: workout.sets },
+    { label: 'REPS', value: workout.reps },
+    { label: 'DURATION', value: `${workout.duration} min` },
+    { label: 'CALORIES', value: `${workout.caloriesBurned} kcal` },
+    { label: 'RATING', value: workout.rating },
+  ]
   return (
     <div className='mx-auto my-12 max-w-7xl px-4 lg:px-0'>
       <div className='grid grid-cols-1 gap-8 md:gap-16 rounded-3xl items-stretch justify-between  lg:grid-cols-12 lg:p-8'>
@@ -49,73 +59,20 @@ const DetailsPage = ({ workout }: Iwordout) => {
 
             <div className='overflow-x-auto rounded-box border border-base-content/5 bg-[#1E2330]/40 mt-10'>
               <table className='table w-full'>
-                {/* Header */}
-                <thead>
-                  <tr className='border-b border-[#2A2F3A]'>
-                    <th className='text-[#9CA3AF] text-xs md:text-sm font-bold uppercase tracking-wider py-4'>
-                      EQUIPMENT
-                    </th>
-
-                    <th className='text-right text-sm font-inter font-normal text-[#E5E7EB] py-4'>
-                      {workout.equipment}
-                    </th>
-                  </tr>
-                </thead>
-
                 <tbody>
-                  <tr className='border-b border-[#2A2F3A]'>
-                    <td className='text-sm font-inter font-semibold text-[#9CA3AF]'>
-                      DIFFICULTY
-                    </td>
-                    <td className='text-right text-sm font-inter font-normal text-[#E5E7EB]'>
-                      {workout.difficulty}
-                    </td>
-                  </tr>
-
-                  <tr className='border-b border-[#2A2F3A]'>
-                    <td className='text-[#9CA3AF] text-xs md:text-sm font-semibold'>
-                      SETS
-                    </td>
-                    <td className='text-right text-sm font-inter font-normal text-[#E5E7EB]'>
-                      {workout.sets}
-                    </td>
-                  </tr>
-
-                  <tr className='border-b border-[#2A2F3A]'>
-                    <td className='text-[#9CA3AF] text-xs md:text-sm font-semibold'>
-                      REPS
-                    </td>
-                    <td className='text-right text-sm font-inter font-normal text-[#E5E7EB]'>
-                      {workout.reps}
-                    </td>
-                  </tr>
-
-                  <tr className='border-b border-[#2A2F3A]'>
-                    <td className='text-[#9CA3AF] text-xs md:text-sm font-semibold'>
-                      DURATION
-                    </td>
-                    <td className='text-right text-sm font-inter font-normal text-[#E5E7EB]'>
-                      {workout.duration} min
-                    </td>
-                  </tr>
-
-                  <tr className='border-b border-[#2A2F3A]'>
-                    <td className='text-[#9CA3AF] text-xs md:text-sm font-semibold'>
-                      CALORIES
-                    </td>
-                    <td className='text-right text-sm font-inter font-normal text-[#E5E7EB]'>
-                      {workout.caloriesBurned} kcal
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td className='text-[#9CA3AF] text-xs md:text-sm font-semibold'>
-                      RATING
-                    </td>
-                    <td className='text-right text-sm font-inter font-normal text-[#E5E7EB]'>
-                      {workout.rating}
-                    </td>
-                  </tr>
+                  {metaItems.map((item, index) => (
+                    <tr
+                      key={index}
+                      className='border-b border-[#2A2F3A] last:border-b-0'
+                    >
+                      <td className='text-xs font-semibold uppercase text-[#9CA3AF] md:text-sm'>
+                        {item.label}
+                      </td>
+                      <td className='py-4 text-right font-inter text-sm font-normal text-[#E5E7EB]'>
+                        {item.value}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
@@ -141,13 +98,8 @@ const DetailsPage = ({ workout }: Iwordout) => {
 
             {/* Action Button */}
             <div className='mt-8 flex flex-col md:flex-row items-center gap-5'>
-              <button className='bg-[#C2F800] btn px-6 text-[#000000] text-sm w-full sm:w-auto'>
-                <CalendarPlus2 size={16} /> Add to today&apos;s plan
-              </button>
-
-              <button className='btn w-full sm:w-auto btn-neutral btn-outline border-[#374151] text-white'>
-                <Bookmark size={16} /> Save for later
-              </button>
+              <AddTodayPlanBtn workout={workout} />
+              <SavePlanBtn workout={workout} />
             </div>
           </div>
         </div>

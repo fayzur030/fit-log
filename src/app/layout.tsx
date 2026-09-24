@@ -3,6 +3,8 @@ import { Geist_Mono, Oswald } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/shared/Navbar'
 import Footer from '@/components/shared/Footer'
+import { WorkoutProvider } from '@/context/PlanContext'
+import { ToastContainer } from 'react-toastify'
 
 const oswald = Oswald({
   subsets: ['latin'],
@@ -26,9 +28,12 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       className={`${oswald.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className='min-h-full flex flex-col'>
-        <Navbar />
-        <main className='flex-1'>{children}</main>
-        <Footer />
+        <WorkoutProvider>
+          <ToastContainer />
+          <Navbar />
+          <main className='flex-1'>{children}</main>
+          <Footer />
+        </WorkoutProvider>
       </body>
     </html>
   )
