@@ -1,5 +1,6 @@
+import DetailsPage from '@/components/WorkoutDetails'
 import { getWorkoutById } from '@/services/getWorkoutById'
-import DetailsPage from '../page'
+
 interface DetailsProps {
   params: Promise<{ id: string }>
 }
