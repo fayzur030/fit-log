@@ -6,7 +6,6 @@ interface Iwordout {
 }
 
 const DetailsPage = ({ workout }: Iwordout) => {
-  console.log(workout)
   return (
     <div className='mx-auto my-12 max-w-7xl px-4 lg:px-0'>
       <div className='grid grid-cols-1 gap-8 md:gap-16 rounded-3xl items-stretch justify-between  lg:grid-cols-12 lg:p-8'>

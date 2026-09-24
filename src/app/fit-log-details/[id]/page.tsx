@@ -7,7 +7,7 @@ interface DetailsProps {
 const page = async ({ params }: DetailsProps) => {
   const { id } = await params
   const workoutDetails = await getWorkoutById(id)
-  console.log(workoutDetails)
+
   return (
     <div>
       <DetailsPage workout={workoutDetails} />

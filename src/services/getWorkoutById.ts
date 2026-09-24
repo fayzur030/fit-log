@@ -5,6 +5,8 @@ export const getWorkoutById = async (id: string) => {
   if (!response.ok) {
     throw new Error('Failed to fetch fitlog single data ')
   }
+
   const workout: FitLogData = await response.json()
+
   return workout
 }
