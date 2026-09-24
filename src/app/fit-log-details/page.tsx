@@ -123,7 +123,7 @@ const DetailsPage = ({ workout }: Iwordout) => {
 
             {/* Instructions Section */}
             {workout.instructions && workout.instructions.length > 0 && (
-              <div className='mt-6 border-t border-white/10 pt-6'>
+              <div className='mt-6 pt-6'>
                 <h3 className='text-sm font-bold uppercase tracking-wider text-white'>
                   INSTRUCTIONS
                 </h3>
@@ -141,12 +141,12 @@ const DetailsPage = ({ workout }: Iwordout) => {
             )}
 
             {/* Action Button */}
-            <div className='mt-8 flex flex-wrap items-center gap-5'>
-              <button className='bg-[#C2F800] btn px-6 text-[#000000] text-sm w-full l sm:w-auto'>
+            <div className='mt-8 flex flex-col md:flex-row items-center gap-5'>
+              <button className='bg-[#C2F800] btn px-6 text-[#000000] text-sm w-full sm:w-auto'>
                 <CalendarPlus2 size={16} /> Add to today&apos;s plan
               </button>
 
-              <button className='btn w-full btn-neutral btn-outline border-[#374151] text-white'>
+              <button className='btn w-full sm:w-auto btn-neutral btn-outline border-[#374151] text-white'>
                 <Bookmark size={16} /> Save for later
               </button>
             </div>
