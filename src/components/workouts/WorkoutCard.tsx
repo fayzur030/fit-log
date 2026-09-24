@@ -1,13 +1,14 @@
 import { FitLogData } from '@/types/fitlog'
 import { Clock, Flame, Star } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 interface ItemsProps {
   item: FitLogData
 }
 
 const WorkoutCard = ({ item }: ItemsProps) => {
   return (
-    <div>
+    <Link href={`/fit-log-details/${item.id}`}>
       <div className='card bg-[#222630]/40  group w-full overflow-hidden rounded-2xl border border-white/10 shadow-lg shadow-black/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#C2F800]/30 hover:shadow-xl'>
         <figure>
           <Image
@@ -19,9 +20,16 @@ const WorkoutCard = ({ item }: ItemsProps) => {
           />
         </figure>
         <div className='card-body'>
-          <p className='text-black badge bg-[#C2F800] text-xs md:text-xs font-bold rounded-full py-3.5 '>
-            {item.muscleGroups}
-          </p>
+          <div className='flex items-center gap-3'>
+            {item.muscleGroups?.map((muscle, index) => (
+              <span
+                key={index}
+                className='badge border-none bg-[#CCFF00]  font-semibold text-[#000000] px-4 py-3 text-xs'
+              >
+                {muscle}
+              </span>
+            ))}
+          </div>
           <h2 className='card-title text-lg md:text-xl'>{item.name}</h2>
           <p className='font-inter text-[#9CA3AF]'>{item.equipment}</p>
           <div className='divider'></div>
@@ -41,7 +49,7 @@ const WorkoutCard = ({ item }: ItemsProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

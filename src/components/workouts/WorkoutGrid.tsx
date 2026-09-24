@@ -1,4 +1,4 @@
-import { getFitLog } from '@/services/fitlog.service'
+import { getFitLog } from '@/services/getWorkouts'
 import WorkoutCard from './WorkoutCard'
 
 const WorkoutGrid = async () => {
