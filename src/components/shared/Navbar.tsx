@@ -25,7 +25,7 @@ const Navbar = () => {
   const { workoutPlans, savedWorkouts } = useContext(WorkoutContext)
 
   return (
-    <nav className='sticky top-0 z-50 border-b border-[#1c1f26] backdrop-blur'>
+    <nav className='sticky top-0 z-50 border-b bg-[#0A0A0A] border-[#1c1f26] backdrop-blur'>
       <div className='mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:h-17 sm:px-6 lg:h-18 lg:px-8'>
         {/* Logo */}
         <Link
@@ -74,16 +74,9 @@ const Navbar = () => {
             className='flex items-center gap-3 text-base font-medium text-[#D1D5DB] transition-colors hover:text-white'
           >
             <span>Plan</span>
-
-            {workoutPlans.length === 0 ? (
-              <span className='flex h-8 w-8 items-center justify-center rounded-full bg-[#CCFF00] text-lg font-semibold text-black'>
-                0
-              </span>
-            ) : (
-              <span className='flex h-8 w-8 items-center justify-center rounded-full bg-[#CCFF00] text-lg font-semibold text-black'>
-                {workoutPlans.length}
-              </span>
-            )}
+            <span className='flex h-8 w-8 items-center justify-center rounded-full bg-[#CCFF00] text-lg font-semibold text-black'>
+              {workoutPlans.length}
+            </span>
           </Link>
 
           <Link
@@ -91,15 +84,9 @@ const Navbar = () => {
             className='flex items-center gap-3 text-base font-medium text-[#D1D5DB] transition-colors hover:text-white'
           >
             <span>Saved</span>
-            {savedWorkouts.length === 0 ? (
-              <span className='flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#30343D] text-lg font-medium text-[#D1D5DB]'>
-                0
-              </span>
-            ) : (
-              <span className='flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#30343D] text-lg font-medium text-[#D1D5DB]'>
-                {savedWorkouts.length}
-              </span>
-            )}
+            <span className='flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#30343D] text-lg font-medium text-[#D1D5DB]'>
+              {savedWorkouts.length}
+            </span>
           </Link>
         </div>
 
@@ -150,15 +137,9 @@ const Navbar = () => {
               >
                 <span>Plan</span>
 
-                {workoutPlans.length === 0 ? (
-                  <span className='flex h-8 w-8 items-center justify-center rounded-full bg-[#CCFF00] text-lg font-semibold text-black'>
-                    0
-                  </span>
-                ) : (
-                  <span className='flex h-8 w-8 items-center justify-center rounded-full bg-[#CCFF00] text-lg font-semibold text-black'>
-                    {workoutPlans.length}
-                  </span>
-                )}
+                <span className='flex h-8 w-8 items-center justify-center rounded-full bg-[#CCFF00] text-lg font-semibold text-black'>
+                  {workoutPlans.length}
+                </span>
               </Link>
 
               <Link
@@ -168,15 +149,9 @@ const Navbar = () => {
               >
                 <span>Saved</span>
 
-                {savedWorkouts.length === 0 ? (
-                  <span className='flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#30343D] text-lg font-medium text-[#D1D5DB]'>
-                    0
-                  </span>
-                ) : (
-                  <span className='flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#30343D] text-lg font-medium text-[#D1D5DB]'>
-                    {savedWorkouts.length}
-                  </span>
-                )}
+                <span className='flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#30343D] text-lg font-medium text-[#D1D5DB]'>
+                  {savedWorkouts.length}
+                </span>
               </Link>
             </div>
           </div>
