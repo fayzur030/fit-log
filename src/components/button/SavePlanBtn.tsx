@@ -16,12 +16,12 @@ const SavePlanBtn = ({ workout }: WorkoutProps) => {
   const handelSaveToPlan = () => {
     const isAlready = savedWorkouts.some((item) => item.id === workout.id)
     if (isAlready) {
-      showErrorTost(`Already Added to today's plan`)
+      showErrorTost(`Already Added save to plan`)
       return
     }
     setSavedWorkouts((prev: FitLogData[]) => [...prev, workout])
     console.log('button tiger', savedWorkouts)
-    showSuccessToast(`Added to today's plan`)
+    showSuccessToast(`Added save to plan`)
   }
 
   return (
