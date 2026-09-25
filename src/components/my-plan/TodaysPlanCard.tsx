@@ -11,7 +11,6 @@ interface PlanProps {
 }
 
 const TodaysPlanCard = ({ plan }: PlanProps) => {
-  console.log(plan)
   return (
     <div className='flex w-full flex-col gap-4 rounded-2xl border border-gray-800 bg-[#232732]/40 p-4 text-white sm:flex-row sm:items-center sm:justify-between'>
       {/* Left Section: Image & Main Info */}

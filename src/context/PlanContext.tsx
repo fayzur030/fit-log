@@ -1,7 +1,7 @@
 'use client'
 
 import { FitLogData } from '@/types/fitlog'
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 
 interface WorkoutContextType {
   workoutPlans: FitLogData[]
@@ -24,6 +24,38 @@ export const WorkoutProvider = ({
 }) => {
   const [workoutPlans, setWorkoutPlans] = useState<FitLogData[]>([])
   const [savedWorkouts, setSavedWorkouts] = useState<FitLogData[]>([])
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  // get data from local storage
+
+  useEffect(() => {
+    const plans = localStorage.getItem('workoutPlans')
+    const save = localStorage.getItem('savedWorkouts')
+
+    if (plans) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setWorkoutPlans(JSON.parse(plans))
+    }
+    if (save) {
+      setSavedWorkouts(JSON.parse(save))
+    }
+    setIsLoaded(true)
+  }, [])
+
+  // Save workout plans
+
+  useEffect(() => {
+    if (!isLoaded) return
+    localStorage.setItem('workoutPlans', JSON.stringify(workoutPlans))
+  }, [workoutPlans, isLoaded])
+
+  // Save save workout
+
+  useEffect(() => {
+    if (!isLoaded) return
+    localStorage.setItem('savedWorkouts', JSON.stringify(savedWorkouts))
+  }, [savedWorkouts, isLoaded])
+
   const shareData = {
     workoutPlans,
     setWorkoutPlans,

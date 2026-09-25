@@ -20,7 +20,7 @@ const SavePlanBtn = ({ workout }: WorkoutProps) => {
       return
     }
     setSavedWorkouts((prev: FitLogData[]) => [...prev, workout])
-    console.log('button tiger', savedWorkouts)
+
     showSuccessToast(`Added save to plan`)
   }
 
