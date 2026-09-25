@@ -4,8 +4,8 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <div className='bg-[#090A0D] mt-10 md:mt-14 border-t border-[#1c1f26] h-18'>
-      <footer className='max-w-7xl mx-auto py-4 flex justify-between items-center'>
+    <div className='mt-10 h-auto border-t border-[#1c1f26] bg-[#090A0D] md:mt-14'>
+      <footer className='mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-4 sm:flex-row sm:px-6 lg:px-8'>
         <Link href='/' className='flex shrink-0 items-center gap-2 sm:gap-3'>
           <Image
             src={footerLogo}
@@ -19,7 +19,8 @@ const Footer = () => {
             FITLOG
           </h1>
         </Link>
-        <p className='text-sm font-inter text-[#6B7280]'>
+
+        <p className='text-center font-inter text-xs text-[#6B7280] sm:text-right sm:text-sm'>
           © 2026 FitLog — Workout Library. Train hard, log honest.
         </p>
       </footer>
