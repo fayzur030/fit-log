@@ -1,4 +1,4 @@
-# Fit Log
+# 🏋️ Fit Log
 
 Fit Log is a modern workout tracking web application where users can explore different exercises, view detailed workout information, create a personalized workout plan, and save their favorite workouts for later.
 
