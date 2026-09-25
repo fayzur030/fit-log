@@ -1,9 +1,10 @@
 import { FitLogData } from '@/types/fitlog'
-import { Clock, Flame, Star, X } from 'lucide-react'
+import { Clock, Flame, Star } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import MarkAsDoneBtn from '../button/MarkAsDoneBtn'
-import RemoveBtn from '../button/RemoveBtn'
+
+import RemovePlanBtn from '../button/RemoveBtn'
 
 interface PlanProps {
   plan: FitLogData
@@ -62,7 +63,7 @@ const TodaysPlanCard = ({ plan }: PlanProps) => {
 
         <MarkAsDoneBtn plan={plan} />
 
-        <RemoveBtn plan={plan} />
+        <RemovePlanBtn plan={plan} />
       </div>
     </div>
   )

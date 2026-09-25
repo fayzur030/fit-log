@@ -6,6 +6,8 @@ import { useContext, useState } from 'react'
 import TodaysPlanCard from './TodaysPlanCard'
 import EmptyMessage from './EmptyMessage'
 import SavedWorkoutsCard from './SavedWorkoutsCard'
+import StatsWorkoutPlans from './StatsWorkoutPlans'
+import StatsWorkoutSave from './StatsWorkoutSave'
 
 const TodayPlan = () => {
   const [buttonType, setButtonType] = useState<'plan' | 'saved'>('plan')
@@ -18,7 +20,10 @@ const TodayPlan = () => {
   return (
     <div className='max-w-7xl mx-auto mt-10'>
       {/* Tab Button */}
-      <div className='flex w-full flex-col gap-4 md:flex-row md:items-center md:justify-between'>
+
+      {buttonType === 'plan' ? <StatsWorkoutPlans /> : <StatsWorkoutSave />}
+
+      <div className=' mt-10 flex w-full flex-col gap-4 md:flex-row md:items-center md:justify-between'>
         {/* Tabs */}
         <div className='flex w-full items-center gap-1 rounded-xl border border-[#232936] bg-[#0E1117] p-1 md:w-auto'>
           <button

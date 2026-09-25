@@ -2,7 +2,7 @@
 import { WorkoutContext } from '@/context/PlanContext'
 import { useContext } from 'react'
 
-const statsWorkoutPlans = () => {
+const StatsWorkoutPlans = () => {
   const { workoutPlans } = useContext(WorkoutContext)
 
   // workoutPlans
@@ -49,10 +49,8 @@ const statsWorkoutPlans = () => {
           </div>
         ))}
       </div>
-      {/* tab */}
-      {/* name of each tab group should be unique */}
     </div>
   )
 }
 
-export default statsWorkoutPlans
+export default StatsWorkoutPlans
