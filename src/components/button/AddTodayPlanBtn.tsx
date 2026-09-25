@@ -15,7 +15,7 @@ const AddTodayPlanBtn = ({ workout }: WorkoutProps) => {
   const handelAddToPlan = () => {
     const isAlready = workoutPlans.some((item) => item.id === workout.id)
     if (isAlready) {
-      showErrorTost(`Already Added to today's plan`)
+      showErrorTost(`Already Added in your plan`)
       return
     }
     setWorkoutPlans((prev: FitLogData[]) => [...prev, workout])
