@@ -31,8 +31,8 @@ const StatsWorkoutSave = () => {
 
   return (
     <div>
-      <div className='max-w-7xl mx-auto mt-4 px-4 sm:px-6 lg:px-0'>
-        <div className='grid grid-cols-1 sm:grid-cols-3 rounded-lg bg-[#232732]/40 p-5 sm:p-6'>
+      <div className='max-w-7xl mx-auto mt-4 '>
+        <div className='grid grid-cols-3 sm:grid-cols-3 rounded-lg bg-[#232732]/40 p-5 sm:p-6'>
           {statsWorkoutSave.map((stat, idx) => (
             <div
               key={idx}

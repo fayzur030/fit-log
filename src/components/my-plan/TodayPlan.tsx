@@ -8,14 +8,45 @@ import EmptyMessage from './EmptyMessage'
 import SavedWorkoutsCard from './SavedWorkoutsCard'
 import StatsWorkoutPlans from './StatsWorkoutPlans'
 import StatsWorkoutSave from './StatsWorkoutSave'
+import { FitLogData } from '@/types/fitlog'
 
+type SortProps = 'Duration' | 'Calories' | 'Rating'
+const sortOptions: SortProps[] = ['Duration', 'Calories', 'Rating']
 const TodayPlan = () => {
   const [buttonType, setButtonType] = useState<'plan' | 'saved'>('plan')
 
   const handleUpdateBtnType = (type: 'plan' | 'saved') => {
     setButtonType(type)
   }
+
+  // context
   const { workoutPlans, savedWorkouts } = useContext(WorkoutContext)
+
+  // sort state
+
+  const [sortBy, setSortBy] = useState<SortProps>('Duration')
+
+  // handelSortChange
+
+  const sortPlan = (plan: FitLogData[]) => {
+    const sortPlan = [...plan]
+    if (sortBy === 'Duration') {
+      sortPlan.sort((a, b) => b.duration - a.duration)
+    } else if (sortBy === 'Calories') {
+      sortPlan.sort((a, b) => b.caloriesBurned - a.caloriesBurned)
+    } else if (sortBy === 'Rating') {
+      sortPlan.sort((a, b) => b.rating - a.rating)
+    }
+    return sortPlan
+  }
+
+  const sortedPlan = sortPlan(workoutPlans)
+  const sortedSaveWork = sortPlan(savedWorkouts)
+
+  // handel change
+  const handelSortChange = (even: React.ChangeEvent<HTMLSelectElement>) => {
+    setSortBy(even.target.value as SortProps)
+  }
 
   return (
     <div className='max-w-7xl mx-auto mt-10'>
@@ -56,10 +87,16 @@ const TodayPlan = () => {
           <span className='text-sm text-[#6D7588]'>Sort By</span>
 
           <div className='relative'>
-            <select className='appearance-none rounded-lg border border-[#2D3648] bg-[#1A2130] px-3 py-2 pr-9 text-sm text-white outline-none transition-colors duration-200 hover:bg-[#222A3A] focus:border-[#3D4A63]'>
-              <option value='duration'>Duration</option>
-              <option value='calories'>Calories</option>
-              <option value='name'>Name</option>
+            <select
+              className='appearance-none rounded-lg border border-[#2D3648] bg-[#1A2130] px-3 py-2 pr-9 text-sm text-white outline-none transition-colors duration-200 hover:bg-[#222A3A] focus:border-[#3D4A63]'
+              value={sortBy}
+              onChange={handelSortChange}
+            >
+              {sortOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
             </select>
 
             <ChevronDown
@@ -72,17 +109,17 @@ const TodayPlan = () => {
 
       <div className='mt-6 space-y-6 w-full'>
         {buttonType === 'plan' ? (
-          workoutPlans.length === 0 ? (
+          sortedPlan.length === 0 ? (
             <EmptyMessage />
           ) : (
-            workoutPlans.map((plan) => (
+            sortedPlan.map((plan) => (
               <TodaysPlanCard key={plan.id} plan={plan} />
             ))
           )
-        ) : savedWorkouts.length === 0 ? (
+        ) : sortedSaveWork.length === 0 ? (
           <EmptyMessage />
         ) : (
-          savedWorkouts.map((workout) => (
+          sortedSaveWork.map((workout) => (
             <SavedWorkoutsCard key={workout.id} workout={workout} />
           ))
         )}

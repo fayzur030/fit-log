@@ -52,7 +52,7 @@ const SavedWorkoutsCard = ({ workout }: WorkoutProps) => {
       </div>
 
       {/* Right Section: Action Buttons */}
-      <div className='flex w-full items-center gap-2 sm:w-auto sm:shrink-0 sm:gap-3'>
+      <div className='flex w-full items-center justify-between gap-2 sm:w-auto sm:shrink-0 sm:gap-3'>
         <Link href={`fit-log-details/${workout.id}`}>
           <button className='flex-1 border border-[#374151] btn-outline bg-transparent rounded-full px-4 py-2 md:px-6 md:py-3 cursor-pointer  text-white'>
             View Details
