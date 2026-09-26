@@ -20,3 +20,4 @@ Fit Log is a modern workout tracking web application where users can explore dif
 - **Saved Workouts** — Save favorite workouts and manage them from the saved section.
 - **LocalStorage Persistence** — Workout plans and saved workouts persist even after refreshing or reopening the page.
 - **Sort Workouts** — Sort workout plans and saved workouts by relevant criteria such as rating, duration, or calories.
+- **Search Workouts** — Search workouts by name or tag.
